@@ -1,20 +1,13 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Solution {
 
     public static void main(String[] args) {
-            Scanner sc=new Scanner(System.in);
-            System.out.println("================================");
-            for(int i=0;i<3;i++){
-                String s1=sc.next();
-                int x=sc.nextInt();
-                System.out.printf(s1+"         "+x);
-                
-            }
-            System.out.println("================================");
-
+        int angka =0;
+        Scanner input = new Scanner(System.in);
+        while (input.hasNext()) {
+            System.out.println(++angka+" "+input.nextLine());
+        }
     }
 }
-
-
-

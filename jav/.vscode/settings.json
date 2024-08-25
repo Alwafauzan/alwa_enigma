@@ -16,5 +16,6 @@
             "password": "myPassword",
             "database": "postgres"
         }
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }
