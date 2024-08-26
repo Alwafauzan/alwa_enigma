@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class InputOutputDatabase {
+public class buram {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
