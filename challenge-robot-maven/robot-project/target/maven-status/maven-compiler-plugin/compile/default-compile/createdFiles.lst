@@ -1,0 +1,4 @@
+com/chellenge/robot/util/RobotUtil.class
+com/chellenge/robot/console/RobotConsole.class
+com/chellenge/robot/entity/RobotEntity.class
+com/chellenge/robot/service/RobotService.class

@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/POM/4.0.0/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chellenge.robot</groupId>
+    <artifactId>robot-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>com.chellenge.robot.console.RobotConsole</Main-Class>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Dependensi tambahan jika diperlukan -->
+    </dependencies>
+</project>
+
+
+
+
+        Scanner scanner = new Scanner(System.in);
+        RobotService robotService = new RobotService();
+        RobotEntity robot = new RobotEntity(0, 0, 'N');
+
+        System.out.println("Initial Robot Position: " + robot);
+
+        // Contoh Interaksi Console
+        System.out.println("Enter command (F for forward, L for left, R for right): ");
+        String command = scanner.nextLine();
+
+        switch (command) {
+            case "F": robotService.moveForward(robot); break;
+            case "L": robotService.turnLeft(robot); break;
+            case "R": robotService.turnRight(robot); break;
+        }
+
+        System.out.println("Final Robot Position: " + robot);
