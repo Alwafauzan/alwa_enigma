@@ -1,0 +1,32 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5433,
+      "driver": "PostgreSQL",
+      "name": "coba_jdbc",
+      "database": "coba_jdbc",
+      "username": "postgres"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5433,
+      "driver": "PostgreSQL",
+      "name": "livecode_rdbms_wmb",
+      "database": "livecode_rdbms_wmb",
+      "username": "postgres"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5433,
+      "driver": "PostgreSQL",
+      "name": "kasirku_db",
+      "database": "kasirku_db",
+      "username": "postgres"
+    }
+  ],
+  "java.debug.settings.onBuildFailureProceed": true
+}
