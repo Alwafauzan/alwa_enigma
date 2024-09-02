@@ -2,6 +2,10 @@ package com.example.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -24,9 +28,37 @@ public class StudentDAO {
         }
     }
 
+    // public List<Student> getAllStudents() {
+    // try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+    // // return session.createQuery("from Student", Student.class).list();
+    // return session.createQuery("from Student where id between 1 and 5",
+    // Student.class).list();
+    // }
+    // }
+
+    // public List<Student> getAllStudents() {
+    // try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+    // CriteriaBuilder cbr = session.getCriteriaBuilder();
+    // CriteriaQuery<Student> ceki = cbr.createQuery(Student.class);
+    // Root<Student> root = ceki.from(Student.class);
+
+    // ceki.where(
+    // cbr.and(
+    // cbr.like(root.get("nama"), "m%"),
+    // cbr.between(root.get("id"), 1, 3),
+    // cbr.like(root.get("nama"), "%m%")));
+
+    // return session.createQuery(ceki).getResultList();
+    // }
+    // }
+
     public List<Student> getAllStudents() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Student", Student.class).list();
+            CriteriaBuilder cbr = session.getCriteriaBuilder();
+            CriteriaQuery<Student> ceki = cbr.createQuery(Student.class);
+            Root<Student> root = ceki.from(Student.class);
+
+            return session.createQuery(ceki).getResultList();
         }
     }
 

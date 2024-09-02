@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         StudentController studentController = new StudentController();
 
+        System.out.println(System.getenv("DB_USER"));
         int pilihan = 0;
         while (pilihan != 5) {
             System.out.println("\nMenu:");
