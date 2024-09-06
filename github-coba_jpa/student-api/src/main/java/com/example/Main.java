@@ -3,11 +3,13 @@ package com.example;
 import java.util.List;
 
 import com.example.controller.StudentController;
+import com.example.dao.StudentDAO;
 import com.example.model.Student;
 
 public class Main {
     public static void main(String[] args) {
         StudentController studentController = new StudentController();
+        StudentDAO studentDAO = new StudentDAO();
 
         System.out.println(System.getenv("DB_USER"));
         int pilihan = 0;

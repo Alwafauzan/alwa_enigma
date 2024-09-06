@@ -63,50 +63,50 @@ public class Student {
     }
 }
 
-@Entity
-@Table(name = "matkul")
-public class Matkul {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int matkul_id;
+// @Entity
+// @Table(name = "matkul")
+// public class Matkul {
+// @Id
+// @GeneratedValue(strategy = GenerationType.IDENTITY)
+// private int matkul_id;
 
-    @Column(name = "matkul_name")
-    private String matkul_name;
+// @Column(name = "matkul_name")
+// private String matkul_name;
 
-    @Column(name = "student_id")
-    private String student_id;
+// @Column(name = "student_id")
+// private String student_id;
 
-    // Constructors
-    public Matkul() {
-    }
+// // Constructors
+// public Matkul() {
+// }
 
-    public Matkul(String matkul_name, String student_id) {
-        this.matkul_name = matkul_name;
-        this.student_id = student_id;
-    }
+// public Matkul(String matkul_name, String student_id) {
+// this.matkul_name = matkul_name;
+// this.student_id = student_id;
+// }
 
-    // Getters and Setters
-    public int getId() {
-        return matkul_id;
-    }
+// // Getters and Setters
+// public int getId() {
+// return matkul_id;
+// }
 
-    public void setId(int matkul_id) {
-        this.matkul_id = matkul_id;
-    }
+// public void setId(int matkul_id) {
+// this.matkul_id = matkul_id;
+// }
 
-    public String getNama() {
-        return matkul_name;
-    }
+// public String getNama() {
+// return matkul_name;
+// }
 
-    public void setNama(String matkul_name) {
-        this.matkul_name = matkul_name;
-    }
+// public void setNama(String matkul_name) {
+// this.matkul_name = matkul_name;
+// }
 
-    public String getKode() {
-        return student_id;
-    }
+// public String getKode() {
+// return student_id;
+// }
 
-    public void setKode(String student_id) {
-        this.student_id = student_id;
-    }
-}
+// public void setKode(String student_id) {
+// this.student_id = student_id;
+// }
+// }

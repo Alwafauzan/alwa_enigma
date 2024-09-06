@@ -6,14 +6,16 @@
   "configurations": [
     {
       "type": "java",
+      "name": "StudentApiApplication",
+      "request": "launch",
+      "mainClass": "com.example.studentapi.StudentApiApplication",
+      "projectName": "StudentAPI"
+    },
+    {
+      "type": "java",
       "name": "Current File",
       "request": "launch",
       "mainClass": "${file}",
-      //   "env": {
-      //     "DB_URL": "jdbc:mysql://localhost:3306/student",
-      //     "DB_USER": "postgres",
-      //     "DB_PASSWORD": "myPassword"
-      //   }
       "envFile": "${workspaceFolder}/.env"
     },
     {
@@ -22,7 +24,6 @@
       "request": "launch",
       "mainClass": "com.example.Main",
       "projectName": "student-api"
-      //   "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

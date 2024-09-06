@@ -1,0 +1,1 @@
+/usr/bin/env /home/enigma/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/java/8/bin/java -cp /tmp/cp_1adkdjh620h066qo7h14wy287.jar com.example.Main 

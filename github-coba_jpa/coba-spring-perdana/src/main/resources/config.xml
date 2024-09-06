@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="electricEngine" class="com.example.coba_spring_perdana.Engine">
+        <constructor-arg value="electric" />
+    </bean>
+
+    <bean id="dieselEngine" class="com.example.coba_spring_perdana.Engine">
+        <constructor-arg value="diesel" />
+    </bean>
+
+    <bean id="car" class="com.example.coba_spring_perdana.Car">
+        <constructor-arg value="brio" />
+        <constructor-arg value="pink pastel" />
+        <property name="engine" ref="electricEngine" /> <!-- Pilih engine yang ingin digunakan -->
+    </bean>
+
+</beans>

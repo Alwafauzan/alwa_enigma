@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +18,7 @@ public class Matkul {
 
     private String matkul_name;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
