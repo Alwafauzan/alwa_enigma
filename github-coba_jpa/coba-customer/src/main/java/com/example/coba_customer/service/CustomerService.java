@@ -1,6 +1,7 @@
 package com.example.coba_customer.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,12 @@ import com.example.coba_customer.repository.CustomerRepository;
 @Service
 public class CustomerService {
 
+    private final CustomerRepository customerRepository;
+
     @Autowired
-    private CustomerRepository customerRepository;
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     // create
     public Customer saveCustomer(Customer customer) {
@@ -25,19 +30,31 @@ public class CustomerService {
 
     }
 
-    // update
-    public Customer updateCustomerByPhoneNumber(String phoneNumber, Customer customerDetails) {
-        // Fetch the customer using the provided phoneNumber or throw an exception if
-        // not found
-        Customer customer = customerRepository.findByPhoneNumber(phoneNumber)
-                .orElseThrow(() -> new RuntimeException("Customer with phoneNumber " + phoneNumber + " not found"));
+    // read by id
+    public Optional<Customer> getCustomerByid(String id) {
+        return customerRepository.findByid(id);
+    }
 
-        // Update the customer's details
+    // update
+    public Customer updateCustomerByid(String id, Customer customerDetails) {
+        Customer customer = customerRepository.findByid(id)
+                .orElseThrow(() -> new RuntimeException("Customer with id " + id + " not found"));
+
         customer.setName(customerDetails.getName());
+        customer.setPhoneNumber(customerDetails.getPhoneNumber());
         customer.setIsMember(customerDetails.getIsMember());
 
-        // Save and return the updated customer
         return customerRepository.save(customer);
+    }
+
+    // delete
+    public void deleteCustomerByid(String id) {
+        Optional<Customer> customer = customerRepository.findByid(id);
+        if (customer.isPresent()) {
+            customerRepository.delete(customer.get());
+        } else {
+            throw new RuntimeException("Customer with id " + id + " not found");
+        }
     }
 
 }
