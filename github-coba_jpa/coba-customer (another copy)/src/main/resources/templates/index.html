@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Customer Management</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1>Customer Management</h1>
+
+      <!-- Form to create new customer -->
+      <form th:action="@{/api/customer/create}" method="post" class="mb-4">
+        <h3>Add New Customer</h3>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Add Customer</button>
+      </form>
+
+      <!-- Customer list -->
+      <h3>Customer List</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Iterate over customers -->
+          <tr th:each="customer : ${customers}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.email}"></td>
+            <td>
+              <a
+                th:href="@{'/api/customer/read/' + ${customer.id}}"
+                class="btn btn-info"
+                >View</a
+              >
+              <a
+                th:href="@{'/api/customer/update/' + ${customer.id}}"
+                class="btn btn-warning"
+                >Edit</a
+              >
+              <a
+                th:href="@{'/api/customer/delete/' + ${customer.id}}"
+                class="btn btn-danger"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

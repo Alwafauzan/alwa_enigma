@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +28,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     // create
-    @PostMapping("/create")
+    @PostMapping(path = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Customer saveCustomer(@RequestBody Customer customer) {
         return customerService.saveCustomer(customer);
     }
@@ -54,7 +55,8 @@ public class CustomerController {
     public ResponseEntity<Customer> updateCustomerByid(@PathVariable(value = "id") String id,
             @RequestBody Customer customerDetails) {
         try {
-            Customer updatedCustomer = customerService.updateCustomerByid(id, customerDetails);
+            Customer updatedCustomer = customerService.updateCustomerByid(id,
+                    customerDetails);
             return ResponseEntity.ok(updatedCustomer);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -70,6 +72,11 @@ public class CustomerController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+    }
+
+    public void setCustomerService(CustomerService customerService2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCustomerService'");
     }
 
 }
